@@ -3,14 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>React</title>
-    <style>
-
-        .movies {
-            padding: 12%;
-            float: left;
-        }
-
-    </style>
 </head>
 <body>
 <script src="https://fb.me/react-0.14.3.js"></script>
@@ -22,12 +14,19 @@
 
 <script type="text/babel">
 
-    var Movie=React.createClass({
-        render: function() {
+    var Comment=React.createClass({
+        ed: function () {
+            alert("Editing text");
+        },
+        remove: function () {
+            alert('Removing text');
+        },
+        render: function () {
             return(
-                <div className="movies">
-                    <h1>{this.props.title}</h1>
-                    <h3>{this.props.genre}</h3>
+                <div>
+                    <div>{this.props.children}</div>
+                    <button onClick={this.ed}>Edit</button>
+                    <button onClick={this.remove}>Remove</button>
                 </div>
             );
         }
@@ -35,9 +34,9 @@
 
     ReactDOM.render(
         <div>
-            <Movie title="Lakshay" genre="Patriotic"/>
-            <Movie title="Captain America" genre="Action"/>
-            <Movie title="Iron Man" genre="Action"/>
+            <Comment>Hey 1</Comment>
+            <Comment>Hey 2</Comment>
+            <Comment>Hey 3</Comment>
         </div>
         ,document.getElementById('example'));
 
