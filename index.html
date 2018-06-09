@@ -3,6 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>React</title>
+    <style>
+
+        .movies {
+            padding: 12%;
+            float: left;
+        }
+
+    </style>
 </head>
 <body>
 <script src="https://fb.me/react-0.14.3.js"></script>
@@ -17,15 +25,22 @@
     var Movie=React.createClass({
         render: function() {
             return(
-                <div>
-                    <h1>Movie Name</h1>
-                    <h3>Genre</h3>
+                <div className="movies">
+                    <h1>{this.props.title}</h1>
+                    <h3>{this.props.genre}</h3>
                 </div>
             );
         }
     });
 
-    ReactDOM.render(<Movie />,document.getElementById('example'));
+    ReactDOM.render(
+        <div>
+            <Movie title="Lakshay" genre="Patriotic"/>
+            <Movie title="Captain America" genre="Action"/>
+            <Movie title="Iron Man" genre="Action"/>
+        </div>
+        ,document.getElementById('example'));
+
 </script>
 
 </body>
