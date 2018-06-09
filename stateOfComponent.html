@@ -22,6 +22,8 @@
             this.setState({editing : true});
         },
         save: function () {
+            var val = this.refs.newText.value;
+            console.log("new comment : "+val);
             this.setState({editing : false});
         },
         remove: function () {
@@ -39,7 +41,7 @@
         renderForm: function () {
             return(
                     <div>
-                        <textarea defaultValue={this.props.children}></textarea>
+                        <textarea ref="newText" defaultValue={this.props.children}></textarea>
                         <button onClick={this.save}>Save</button>
                     </div>
             );
