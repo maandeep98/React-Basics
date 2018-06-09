@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>State in React</title>
+</head>
+<body>
+
+<script src="https://fb.me/react-0.14.3.js"></script>
+<script src="https://fb.me/react-dom-0.14.3.js"></script>
+<script src="browser.min.js"></script>
+
+
+<div id="container">
+
+</div>
+
+<script type="text/babel">
+
+    var C = React.createClass({
+        getInitialState: function () {
+            return{checked: true}
+        },
+        checkit: function () {
+          this.setState({checked: !this.state.checked});
+        },
+        render: function () {
+            var msg;
+            if(this.state.checked) {
+                msg = 'checked'
+            }
+            else {
+                msg = 'unchecked'
+            }
+            return (
+                <div>
+                    <input type="checkbox" onChange={this.checkit} defaultChecked={this.state.checked} />
+                    <h3>The checkbox is {msg}</h3>
+                </div>
+            );
+        }
+    });
+
+    ReactDOM.render(<C />,document.getElementById('container'));
+</script>
+</body>
+</html>
