@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>State and Components</title>
+    <link href="app.css" rel="stylesheet">
 </head>
 <body>
 <script src="https://fb.me/react-0.14.3.js"></script>
@@ -31,18 +32,23 @@
         },
         renderNormal: function () {
             return(
-                    <div>
-                        <div>{this.props.children}</div>
+                <div className="comments">
+                    <div className="head">{this.props.children}</div>
+                    <div className="buttons">
                         <button onClick={this.edit}>Edit</button>
                         <button onClick={this.remove}>Remove</button>
                     </div>
+                </div>
             );
         },
         renderForm: function () {
             return(
-                    <div>
+                    <div className="comments">
+                        <div className="head">Change Comment</div>
                         <textarea ref="newText" defaultValue={this.props.children}></textarea>
-                        <button onClick={this.save}>Save</button>
+                        <div className="buttons">
+                            <button  onClick={this.save}>Save</button>
+                        </div>
                     </div>
             );
         },
