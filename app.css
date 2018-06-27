@@ -13,6 +13,7 @@
 }
 
 .head {
+    font-size: 1.5em;
     font-weight: bold;
     text-align: center;
 }
@@ -34,4 +35,11 @@ button {
 
 .checkboxes {
     margin-right: 1em;
+}
+
+textarea {
+    height:50%;
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 5%;
 }
