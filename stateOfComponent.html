@@ -73,6 +73,11 @@
                 ]
             }
         },
+        add: function (text) {
+            var arr=this.state.comments;
+            arr.push(text);
+            this.setState({comments : arr});
+        },
         createComment:function (text, i) {
             return(
                 <Comment key={i} index={i} updateText={this.updateComment} removeComment={this.removeComment}>
@@ -93,9 +98,14 @@
         },
         render: function () {
             return(
+                <div>
+                    <div className="buttons">
+                        <button onClick={this.add.bind(null, 'New Comment')}>Add Comment</button>
+                    </div>
                     <div className="board">
                         {this.state.comments.map(this.createComment)}
                     </div>
+                </div>
             );
         }
     });
