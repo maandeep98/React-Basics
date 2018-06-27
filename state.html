@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>State in React</title>
+    <link rel="stylesheet" href="app.css">
 </head>
 <body>
 
@@ -33,9 +34,11 @@
                 msg = 'unchecked'
             }
             return (
-                <div>
-                    <input type="checkbox" onChange={this.checkit} defaultChecked={this.state.checked} />
-                    <h3>The checkbox is {msg}</h3>
+                <div className="checks">
+                    <div className="head">
+                        <input type="checkbox" className="checkboxes" onChange={this.checkit} defaultChecked={this.state.checked} />
+                        The checkbox is {msg}.
+                    </div>
                 </div>
             );
         }
