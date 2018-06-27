@@ -23,12 +23,12 @@
             this.setState({editing : true});
         },
         save: function () {
-            var val = this.refs.newText.value;
-            console.log("new comment : "+val);
+            this.props.updateText( this.refs.newText.value, this.props.index);
             this.setState({editing : false});
         },
         remove: function () {
             console.log('Removing text');
+            this.props.removeComment(this.props.index)
         },
         renderNormal: function () {
             return(
@@ -62,13 +62,45 @@
         }
     });
 
-    ReactDOM.render(
-            <div>
-                <Comment>Hey 1</Comment>
-                <Comment>Hey 2</Comment>
-                <Comment>Hey 3</Comment>
-            </div>
-        ,document.getElementById('example'));
+    var Board=React.createClass({
+
+        getInitialState: function () {
+            return {
+                comments: [
+                    'I like Bacon',
+                    'I love Bacon',
+                    'Thoughts become things'
+                ]
+            }
+        },
+        createComment:function (text, i) {
+            return(
+                <Comment key={i} index={i} updateText={this.updateComment} removeComment={this.removeComment}>
+                    {text}
+                </Comment>);
+        },
+        removeComment: function (i) {
+            console.log('Deleting comment: ' + i);
+            var arr=this.state.comments;
+            arr.splice(i, 1);
+            this.setState({comments : arr});
+        },
+        updateComment: function (newText, i) {
+            console.log('Updating comment: ' + i);
+            var arr=this.state.comments;
+            arr[i] = newText;
+            this.setState({comments : arr});
+        },
+        render: function () {
+            return(
+                    <div className="board">
+                        {this.state.comments.map(this.createComment)}
+                    </div>
+            );
+        }
+    });
+
+    ReactDOM.render(<Board />,document.getElementById('example'));
 
 </script>
 
