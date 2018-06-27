@@ -1,0 +1,37 @@
+.main {
+    height: 20em;
+}
+
+.comments {
+    height: 18em;
+    background-color: lightskyblue;
+    width: 30%;
+    margin-left: 2%;
+    margin-top: 10em;
+    float: left;
+    margin-bottom: 10em;
+}
+
+.head {
+    font-weight: bold;
+    text-align: center;
+}
+
+.buttons {
+    text-align: center;
+}
+
+button {
+    margin: 5%;
+}
+
+.checks {
+    background-color: lightskyblue;
+    width: 20%;
+    margin-left: 2%;
+    float: left;
+}
+
+.checkboxes {
+    margin-right: 1em;
+}
