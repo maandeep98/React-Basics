@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>React</title>
+    <link href="app.css" rel="stylesheet">
 </head>
 <body>
 <script src="https://fb.me/react-0.14.3.js"></script>
@@ -15,7 +16,7 @@
 <script type="text/babel">
 
     var Comment=React.createClass({
-        ed: function () {
+        edit: function () {
             alert("Editing text");
         },
         remove: function () {
@@ -23,17 +24,19 @@
         },
         render: function () {
             return(
-                <div>
-                    <div>{this.props.children}</div>
-                    <button onClick={this.ed}>Edit</button>
-                    <button onClick={this.remove}>Remove</button>
+                <div className="comments">
+                    <div className="head">{this.props.children}</div>
+                    <div className="buttons">
+                        <button onClick={this.edit}>Edit</button>
+                        <button onClick={this.remove}>Remove</button>
+                    </div>
                 </div>
             );
         }
     });
 
     ReactDOM.render(
-        <div>
+        <div className="main">
             <Comment>Hey 1</Comment>
             <Comment>Hey 2</Comment>
             <Comment>Hey 3</Comment>
