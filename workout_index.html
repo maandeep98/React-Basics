@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WORKOUT</title>
+    <link rel="stylesheet" href="app.css">
+    <script src="app.js"></script>
+</head>
+<body>
+<script src="https://fb.me/react-0.14.3.js"></script>
+<script src="https://fb.me/react-dom-0.14.3.js"></script>
+<script src="browser.min.js"></script>
+    <div id="page">
+
+    </div>
+
+<script type="text/babel">
+
+    var Work = React.createClass({
+        linking: function () {
+            if(this.props.children=='Morning Workout')
+                window.location.assign("m.html");
+            else if(this.props.children=='Evening Workout')
+                window.location.assign("e.html");
+        },
+
+        render: function () {
+            return(
+                <div className="workouts" onClick={this.linking}>
+                    <span className="timing">
+                        {this.props.children}
+                    </span>
+                </div>
+            );
+        }
+    });
+    ReactDOM.render(
+        <div className="main">
+            <div className="heading">
+                Plan Your Workouts
+            </div>
+            <Work>Morning Workout</Work>
+            <Work>Evening Workout</Work>
+        </div>
+        ,document.getElementById('page'));
+</script>
+
+</body>
+</html>
